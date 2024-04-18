@@ -14,7 +14,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { withEmotionCache } from '@emotion/react';
 import { unstable_useEnhancedEffect as useEnhancedEffect } from '@mui/material';
 import ClientStyleContext from "./src/mui/ClientStyleContext";
-import style from "~/src/styles/index.css";
+import style from "~/src/styles/index.css?url";
 
 interface LayoutProps {
   children: React.ReactNode;
