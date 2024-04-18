@@ -14,6 +14,10 @@ import { Analytics } from "@vercel/analytics/react";
 import { withEmotionCache } from '@emotion/react';
 import { unstable_useEnhancedEffect as useEnhancedEffect } from '@mui/material';
 import ClientStyleContext from "./src/mui/ClientStyleContext";
+import { store } from "./src/store";
+import Page from "./src/route/Page";
+import { Provider } from "react-redux";
+
 import style from "~/src/styles/index.css?url";
 
 interface LayoutProps {
@@ -67,5 +71,9 @@ export const Layout = withEmotionCache(({ children, title }: LayoutProps, emotio
 });
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <Provider store={store}>
+      <Page />
+    </Provider>
+  )
 }

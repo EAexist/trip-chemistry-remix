@@ -2,12 +2,11 @@ import { useState } from "react";
 
 import { Close, Menu } from "@mui/icons-material";
 import { Button, IconButton, AppBar as MuiAppBar, Toolbar } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@remix-run/react";
 
 import { useStrings } from "../../texts";
 import Logo from "../Logo";
 import { useAppBar } from "./AppBarContext";
-import loadable from "@loadable/component";
 
 import Drawer from "../Drawer/Drawer";
 import useNavigateWithGuestContext from "../../hooks/useNavigateWithGuestContext";

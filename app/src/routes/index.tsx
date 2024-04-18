@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes } from "@remix-run/react"
 import Page from "../route/Page"
 import loadable from "@loadable/component";
 import './styles/index.css';

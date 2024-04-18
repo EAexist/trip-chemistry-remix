@@ -1,5 +1,5 @@
 /* React */
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "@remix-run/react";
 
 /* Externals */
 import { useEffect } from "react";

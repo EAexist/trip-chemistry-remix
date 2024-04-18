@@ -1,6 +1,6 @@
 import { m } from "framer-motion";
 import { PropsWithChildren } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "@remix-run/react";
 import LazyDomAnimation from "../../motion/LazyDomAnimation";
 import { SLIDEINLEFT } from "../props";
 

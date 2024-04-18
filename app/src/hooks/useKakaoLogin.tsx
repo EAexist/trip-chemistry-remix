@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams } from "@remix-run/react";
 
 import { asyncKakaoLogin, useUserId } from "../reducers/authReducer";
 import { AppDispatch } from "../store";

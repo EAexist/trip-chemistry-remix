@@ -3,9 +3,9 @@
 /* Externals */
 import { ArrowRight, NavigateBefore } from "@mui/icons-material";
 import { AppBar, Button, CardContent, Divider, IconButton, Stack, Toolbar } from "@mui/material";
+import { useLocation } from "@remix-run/react";
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
-import loadable from "@loadable/component";
+// import loadable from "@loadable/component";
 
 /* Swiper */
 import 'swiper/css';
@@ -19,16 +19,18 @@ import { useHideAppbar } from "../../components/AppBar/AppBarContext";
 import ImageCard from "../../components/Card/ImageCard";
 import Flag from "../../components/Flag";
 import Logo from "../../components/Logo";
+import useNavigateWithGuestContext from "../../hooks/useNavigateWithGuestContext";
 import RoutedMotionPage from "../../motion/components/RoutedMotionPage";
+import { RootState } from "../../store";
 import PaginationDiv from "../../swiper/components/PaginationDiv";
 import { SWIPERPROPS_CITYDETAILCONTENT } from "../../swiper/props";
 import { useStrings } from "../../texts";
 import getImgSrc, { FORMATWEBP } from "../../utils/getImgSrc";
-import useNavigateWithGuestContext from "../../hooks/useNavigateWithGuestContext";
-import { RootState } from "../../store";
+
+import ChemistryResultAccordion from "./component/ChemistryResultAccordion";
 
 /* Loadable Components */
-const ChemistryResultAccordion = loadable(() => import( /* webpackChunkName: "ChemistryResultAccordion" */ './component/ChemistryResultAccordion'));
+// const  = loadable(() => import( /* webpackChunkName: "ChemistryResultAccordion" */ './component/ChemistryResultAccordion'));
 
 interface CityDetailContentProps {
     cityClass: keyof typeof TEST.city.subTests;

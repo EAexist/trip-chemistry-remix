@@ -1,5 +1,5 @@
 /* React */
-import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "@remix-run/react";
 
 /* Externals */
 import { IUserProfile } from "../../interfaces/IUserProfile";

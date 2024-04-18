@@ -5,12 +5,14 @@ import { PropsWithChildren, useEffect, useState } from "react";
 import { CircularProgress } from "@mui/material";
 
 /* App */
-import { LoadStatus } from "../interfaces/enums/LoadStatus";
 import withAuthLoadStatus, { WithLoadStatusProps } from "../hocs/withAuthLoadStatus";
+import { LoadStatus } from "../interfaces/enums/LoadStatus";
 import getImgSrc, { FORMATWEBP } from "../utils/getImgSrc";
-import loadable from "@loadable/component";
+// import loadable from "@loadable/component";
 
-const NoticeBlock = loadable(() => import(/* webpackChunkName: "NoticeBlock" */ "../components/Block/NoticeBlock"));
+import NoticeBlock from "../components/Block/NoticeBlock";
+
+// const NoticeBlock = loadable(() => import(/* webpackChunkName: "NoticeBlock" */ "../components/Block/NoticeBlock"));
 
 interface LoadRequiredContentProps extends WithLoadStatusProps {
     handleSuccess?: () => void;

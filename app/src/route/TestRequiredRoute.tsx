@@ -1,7 +1,7 @@
 /* React */
 
 /* Externals */
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "@remix-run/react";
 
 /* App */
 import { useSelector } from "react-redux";

@@ -4,7 +4,7 @@ import { useCallback, useEffect } from "react";
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams } from "@remix-run/react";
 
 /*** Trip Chemistry ***/
 import { HEADERS_AXIOS } from "../common/app-const";

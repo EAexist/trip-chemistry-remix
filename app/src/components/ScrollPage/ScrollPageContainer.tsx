@@ -1,6 +1,6 @@
 /* React */
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "@remix-run/react";
 
 /* Framer Motion */
 import { useMotionValueEvent, useScroll } from "framer-motion";

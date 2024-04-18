@@ -3,7 +3,7 @@
 /* Externals */
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "@remix-run/react";
 import useKakaoLogin from "../../hooks/useKakaoLogin";
 import { IUserProfile } from "../../interfaces/IUserProfile";
 import { LoadStatus } from "../../interfaces/enums/LoadStatus";
