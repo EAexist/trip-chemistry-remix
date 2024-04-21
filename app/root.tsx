@@ -1,5 +1,5 @@
-/* Material UI, Remix example in TypeScript, GitHub repository, https://github.com/mui/material-ui/tree/master/examples/material-ui-remix-ts */
-/* Remix Software Inc., Remix Indie Stack, GitHub repository, https://github.com/remix-run/examples/blob/main/_official-blog-tutorial */
+/** Material UI, Remix example in TypeScript, GitHub repository, https://github.com/mui/material-ui/tree/master/examples/material-ui-remix-ts */
+/** Remix Software Inc., Remix Indie Stack, GitHub repository, https://github.com/remix-run/examples/blob/main/_official-blog-tutorial */
 
 import { useContext } from "react";
 import {
@@ -8,7 +8,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
+import { json }from "@remix-run/node";
 import type { LinksFunction } from "@remix-run/node";
 import { Analytics } from "@vercel/analytics/react";
 import { withEmotionCache } from '@emotion/react';
@@ -25,13 +27,29 @@ interface LayoutProps {
   title?: string;
 }
 
-/* CSS */
+/**
+ * Remix Software Inc., Remix Guide Environment Variables, https://remix.run/docs/en/main/guides/envvars
+ */ 
+export async function loader() {
+  return json({
+    ENV: {
+      NODE_ENV: process.env.NODE_ENV,
+      REACT_APP_API_URL: process.env.REACT_APP_API_URL,
+      REACT_APP_KAKAO_REST_API_KEY: process.env.REACT_APP_KAKAO_REST_API_KEY,
+      REACT_APP_KAKAO_REDIRECT_URL: process.env.REACT_APP_KAKAO_REDIRECT_URL,
+    },
+  });
+}
+
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" },
   { rel: "stylesheet", href: style },
 ];
 
 export const Layout = withEmotionCache(({ children, title }: LayoutProps, emotionCache) => {
+
+  /* Env Variable */
+  const data = useLoaderData<typeof loader>();
 
   /* Material UI */
   const clientStyleData = useContext(ClientStyleContext);
@@ -45,7 +63,7 @@ export const Layout = withEmotionCache(({ children, title }: LayoutProps, emotio
     emotionCache.sheet.flush();
     tags.forEach((tag) => {
       // eslint-disable-next-line no-underscore-dangle
-      (emotionCache.sheet as any)._insertTag(tag);
+      (emotionCache.sheet as any)._insertTag(tag);  
     });
     // reset cache to reapply global styles
     clientStyleData.reset();
@@ -63,6 +81,13 @@ export const Layout = withEmotionCache(({ children, title }: LayoutProps, emotio
       </head>
       <body>
         {children}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.ENV = ${JSON.stringify(
+              data.ENV
+            )}`,
+          }}
+        />
         <ScrollRestoration />
         <Scripts />
         <Analytics />
