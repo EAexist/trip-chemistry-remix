@@ -1,5 +1,3 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom/client';
 import { RemixBrowser } from '@remix-run/react';
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider } from '@mui/material/styles';
@@ -7,14 +5,17 @@ import { ThemeProvider } from '@mui/material/styles';
 import ClientStyleContext from './src/mui/ClientStyleContext';
 import createEmotionCache from './src/mui/createEmotionCache';
 import theme from './src/mui/theme';
+import { startTransition, useMemo, useState } from 'react';
+import { hydrateRoot } from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
 
 interface ClientCacheProviderProps {
   children: React.ReactNode;
 }
 function ClientCacheProvider({ children }: ClientCacheProviderProps) {
-  const [cache, setCache] = React.useState(createEmotionCache());
+  const [cache, setCache] = useState(createEmotionCache());
 
-  const clientStyleContextValue = React.useMemo(
+  const clientStyleContextValue = useMemo(
     () => ({
       reset() {
         setCache(createEmotionCache());
@@ -31,14 +32,16 @@ function ClientCacheProvider({ children }: ClientCacheProviderProps) {
 }
 
 const hydrate = () => {
-  React.startTransition(() => {
-    ReactDOM.hydrateRoot(
+  startTransition(() => {
+    hydrateRoot(
       document,
       <ClientCacheProvider>
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           {/* <CssBaseline /> */}
-          <RemixBrowser />
+          <HelmetProvider>
+            <RemixBrowser />
+          </HelmetProvider>
         </ThemeProvider>
       </ClientCacheProvider>,
     );
