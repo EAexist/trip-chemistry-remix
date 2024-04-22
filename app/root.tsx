@@ -10,7 +10,7 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 import { json }from "@remix-run/node";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import { Analytics } from "@vercel/analytics/react";
 import { withEmotionCache } from '@emotion/react';
 import { unstable_useEnhancedEffect as useEnhancedEffect } from '@mui/material';
@@ -39,6 +39,48 @@ export async function loader() {
     },
   });
 }
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "여행 타입 테스트" },
+    {
+      name: "description",
+      content: "여행 타입 테스트로 친구랑 함께 떠나는 여행 준비하기. 나의 여행 MBTI는 뭘까? 여행 계획, 여행 일정, 여행 예산, 국내 해외 여행지까지 서로 다른 취향을 맞춰봐.",
+    },
+    {
+      name: "keywords",
+      content: "여행, 여행 일정, 여행지, 여행 계획, 여행 예산, 국내여행, 해외여행, MBTI",
+    },
+    {
+      name: "author",
+      content: "Hyeon. hyeon.expression@gmail.com",
+    },
+    { 
+      name: "og:type",
+      content: "website" 
+    },
+    { 
+      name: "og:site_name",
+      content: "여행 타입 테스트" 
+    },
+    { 
+      name: "og:title",
+      content: "여행 타입 테스트"
+    },
+    { 
+      name: "og:description",
+      content: "여행 타입 테스트로 친구랑 함께 떠나는 여행 준비하기. 나의 여행 MBTI는 뭘까? 여행 계획, 여행 일정, 여행 예산, 국내 해외 여행지까지 서로 다른 취향을 맞춰봐."
+    },
+    {
+      name: "og:url",
+      content: "https://eaexist.github.io/tripchemistry",
+    },
+    {
+      name: "og:image",
+      content: "/images/meta/social-meta-iamge.jpg",
+    },
+  ];
+};
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" },
