@@ -4,10 +4,11 @@ import type { EntryContext } from '@remix-run/node';
 import createEmotionCache from './src/mui/createEmotionCache';
 import theme from './src/mui/theme';
 // import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
+// import { ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
 import createEmotionServer from '@emotion/server/create-instance';
 import ReactHelmetAsync from 'react-helmet-async';
+import { ThemeProvider } from '@mui/material';
 
 const { HelmetProvider } = ReactHelmetAsync
 

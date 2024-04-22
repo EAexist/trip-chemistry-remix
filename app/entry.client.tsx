@@ -1,6 +1,6 @@
 import { RemixBrowser } from '@remix-run/react';
 import { CacheProvider } from '@emotion/react';
-import { ThemeProvider } from '@mui/material/styles';
+// import { ThemeProvider } from '@mui/material/styles';
 // import CssBaseline from '@mui/material/CssBaseline';
 import ClientStyleContext from './src/mui/ClientStyleContext';
 import createEmotionCache from './src/mui/createEmotionCache';
@@ -8,6 +8,7 @@ import theme from './src/mui/theme';
 import { startTransition, useMemo, useState } from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
+import { ThemeProvider } from '@mui/material';
 
 interface ClientCacheProviderProps {
   children: React.ReactNode;

@@ -11,6 +11,6 @@ export default defineConfig({
     presets: [vercelPreset()], 
     // TODO: when mui has esm support, remove this (default is esm)
     // check it https://github.com/mui/material-ui/issues/30671
-    serverModuleFormat: 'cjs' 
+    // serverModuleFormat: 'cjs' 
   }), tsconfigPaths()],
 });
