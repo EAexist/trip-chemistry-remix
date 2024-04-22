@@ -5,7 +5,6 @@ import { useContext } from "react";
 import {
   Links,
   Meta,
-  Outlet,
   Scripts,
   ScrollRestoration,
   useLoaderData,
